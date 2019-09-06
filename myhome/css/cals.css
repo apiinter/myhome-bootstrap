@@ -28,6 +28,7 @@
     padding: 40px 10px;
     text-align: right;
     font-size:20px;
+    font-weight: bold;
 }
 .calc .btns{
     width:340px;
@@ -58,4 +59,8 @@
 }
 section{
     background-image: url("../img/math.jpg")
+}
+
+#times{
+    padding-top:9px;
 }

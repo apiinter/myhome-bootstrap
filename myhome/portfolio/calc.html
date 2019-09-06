@@ -35,22 +35,22 @@
                 <a href="#" class="btn_numb" onclick="num('1')">1</a>
                 <a href="#" class="btn_numb" onclick="num('2')">2</a>
                 <a href="#" class="btn_numb" onclick="num('3')">3</a>
-                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="delete">←</a>
-                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="clear">C</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="erase" onclick="erase()">←</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="clear" onclick="c()">C</a>
                 <a href="#" class="btn_numb" onclick="num('4')">4</a>
                 <a href="#" class="btn_numb" onclick="num('5')">5</a>
                 <a href="#" class="btn_numb" onclick="num('6')">6</a>
                 <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="plus" onclick="plus()">+</a>
-                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="times" onclick="times()">×</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="times" onclick="times()">*</a>
                 <a href="#" class="btn_numb" onclick="num('7')">7</a>
                 <a href="#" class="btn_numb" onclick="num('8')">8</a>
                 <a href="#" class="btn_numb" onclick="num('9')">9</a>
                 <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="minus" onclick="minus()">-</a>
-                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="divide" onclick="divide()">÷</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="divide" onclick="divide()">/</a>
                 <a href="#" class="btn_numb" onclick="num('0')">0</a>
                 <a href="#" class="btn_numb" onclick="num('00')">00</a>
-                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="openBrace">(</a>
-                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="closeBrace">)</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="openBrace" onclick="openBrace()">(</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="closeBrace" onclick="closeBrace()">)</a>
                 <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="equal" onclick="answer()">=</a>
             </div>
         </div>
@@ -58,60 +58,68 @@
     <!-- 풋터 -->
     <footer>경기도 수원시 장안구 정조로</footer>
     <script>
+        var show_explain = document.getElementById("show_explain");
         function explain(param){
             var el = param;
-            if(el.id === "delete"){
-                document.getElementById("show_explain").innerHTML = "한 글자씩 삭제";
+            if(el.id === "erase"){
+                show_explain.innerHTML = "한 글자씩 삭제";
             }else if(el.id === "clear"){
-                document.getElementById("show_explain").innerHTML = "화면 초기화";
+                show_explain.innerHTML = "화면 초기화";
             }else if(el.id === "plus"){
-                document.getElementById("show_explain").innerHTML = "더하기";
+                show_explain.innerHTML = "더하기";
             }else if(el.id === "times"){
-                document.getElementById("show_explain").innerHTML = "곱하기";
+                show_explain.innerHTML = "곱하기";
             }else if(el.id === "minus"){
-                document.getElementById("show_explain").innerHTML = "빼기";
+                show_explain.innerHTML = "빼기";
             }else if(el.id === "divide"){
-                document.getElementById("show_explain").innerHTML = "나누기";
+                show_explain.innerHTML = "나누기";
             }else if(el.id === "openBrace"){
-                document.getElementById("show_explain").innerHTML = "괄호 열기";
+                show_explain.innerHTML = "괄호 열기";
             }else if(el.id === "closeBrace"){
-                document.getElementById("show_explain").innerHTML = "괄호 닫기";
+                show_explain.innerHTML = "괄호 닫기";
             }else if(el.id === "equal"){
-                document.getElementById("show_explain").innerHTML = "계산 결과";
+                show_explain.innerHTML = "계산 결과";
             }
         }
         function eraseDisplay(){
             document.getElementById("show_explain").innerHTML = "";
         }
-
-        n = []
-        cnt = 0;
+        var cnt = 0;
+        var display = document.getElementById("display");
         function num(input){
-            n[cnt] = n[cnt] + input
-            document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + input
+            display.innerHTML += input
+            cnt++;
+            if(cnt === 28){
+                answer();
+            }
         }
         function times(){
-            cnt++
-            document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + '*'
+            display.innerHTML += '*'
         }
         function plus(){
-            cnt++
-            document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + '+'
+            display.innerHTML += '+'
         }
         function minus(){
-            rule = 'X'
-            cnt++
-            document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + '-'
+            display.innerHTML += '-'
         }
         function divide(){
-            rule = 'X'
-            cnt++
-            document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + '/'
+            display.innerHTML += '/'
+        }
+        function erase(){
+            display.innerHTML = display.innerHTML.slice(0, -1);
+        }
+        function c(){
+            display.innerHTML = '';
+        }
+        function openBrace(){
+            display.innerHTML += '(';   
+        }
+        function closeBrace(){
+            display.innerHTML += ')';   
         }
         function answer(){
-            answer = eval(document.getElementById("display").textContent);
-            document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + '=' + answer;
-            
+            var answer = eval(document.getElementById("display").textContent);
+            display.innerHTML += '=' + answer;
         }
     </script>
 </body>
