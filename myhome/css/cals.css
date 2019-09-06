@@ -24,11 +24,13 @@
     margin-right:auto;
     margin-bottom:15px;
     background-color: white;
-    padding-top: 40px;
-    padding: 40px 10px;
+    padding: 10px 10px;
     text-align: right;
     font-size:20px;
     font-weight: bold;
+    overflow-y: : scroll;
+    -ms-overflow-style:none;
+    overflow-wrap: break-word;
 }
 .calc .btns{
     width:340px;
