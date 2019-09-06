@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/cals.css">
+</head>
+
+<body>
+    <!-- 헤더 -->
+    <header>
+        <a href="../index.html"><img src="../img/300.png" alt="logo"></a>
+        <!-- /(루트)아래 myhome 디렉토리에 index.html을 연결 -->
+    </header>
+    <!-- 전역 메뉴 바 -->
+    <ul class="gnb">
+        <li><a href="../index.html">홈</a></li>
+        <li><a href="../portfolio/calc.html" class="active">계산기</a></li>
+        <li><a href="../board/list.html">게시판(글목록)</a></li>
+        <li><a href="../sitemap.html">사이트맵</a></li>
+        <li class="right"><a href="">회원가입</a></li>
+        <li class="right"><a href="">로그인</a></li>
+    </ul>
+    <div class="clearfix"></div>
+    <!-- 컨텐츠 -->
+    <section>
+        <div class="calc">
+            <div class="maker" id="show_explain"></div>
+            <div class="disp" id="display"></div>
+            <div class="btns">
+                <a href="#" class="btn_numb" onclick="num('1')">1</a>
+                <a href="#" class="btn_numb" onclick="num('2')">2</a>
+                <a href="#" class="btn_numb" onclick="num('3')">3</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="delete">←</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="clear">C</a>
+                <a href="#" class="btn_numb" onclick="num('4')">4</a>
+                <a href="#" class="btn_numb" onclick="num('5')">5</a>
+                <a href="#" class="btn_numb" onclick="num('6')">6</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="plus">+</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="times" onclick="times()">×</a>
+                <a href="#" class="btn_numb" onclick="num('7')">7</a>
+                <a href="#" class="btn_numb" onclick="num('8')">8</a>
+                <a href="#" class="btn_numb" onclick="num('9')">9</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="minus" onclick="minus()">-</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="divide">÷</a>
+                <a href="#" class="btn_numb" onclick="num('0')">0</a>
+                <a href="#" class="btn_numb" onclick="num('00')">00</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="openBrace">(</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="closeBrace">)</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="equal" onclick="answer()">=</a>
+            </div>
+        </div>
+    </section>
+    <!-- 풋터 -->
+    <footer>경기도 수원시 장안구 정조로</footer>
+    <script>
+        function explain(param){
+            var el = param;
+            if(el.id === "delete"){
+                document.getElementById("show_explain").innerHTML = "한 글자씩 삭제";
+            }else if(el.id === "clear"){
+                document.getElementById("show_explain").innerHTML = "화면 초기화";
+            }else if(el.id === "plus"){
+                document.getElementById("show_explain").innerHTML = "더하기";
+            }else if(el.id === "times"){
+                document.getElementById("show_explain").innerHTML = "곱하기";
+            }else if(el.id === "minus"){
+                document.getElementById("show_explain").innerHTML = "빼기";
+            }else if(el.id === "divide"){
+                document.getElementById("show_explain").innerHTML = "나누기";
+            }else if(el.id === "openBrace"){
+                document.getElementById("show_explain").innerHTML = "괄호 열기";
+            }else if(el.id === "closeBrace"){
+                document.getElementById("show_explain").innerHTML = "괄호 닫기";
+            }else if(el.id === "equal"){
+                document.getElementById("show_explain").innerHTML = "계산 결과";
+            }
+        }
+        function eraseDisplay(){
+            document.getElementById("show_explain").innerHTML = "";
+        }
+
+        n = []
+        cnt = 0;
+        function num(input){
+            n[cnt] = n[cnt] + input
+            document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + input
+        }
+        function times(){
+            cnt++
+            document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + '*'
+        }
+        function plus(){
+            cnt++
+            document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + '+'
+        }
+        function minus(){
+            rule = 'X'
+            cnt++
+            document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + '-'
+        }
+        function divide(){
+            rule = 'X'
+            cnt++
+            document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + '/'
+        }
+        function answer(){
+            answer = eval(document.getElementById("display").textContent);
+            document.getElementById("display").innerHTML = document.getElementById("display").innerHTML + '=' + answer;
+            
+        }
+    </script>
+</body>
+
+</html>

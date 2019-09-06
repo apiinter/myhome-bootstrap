@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>반응형 메뉴바</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+    <link rel="stylesheet" href="0904.css">
+</head>
+
+<body>
+    <div class="topnav clearfix" id="myTopnav">
+        <a href="#"><i class="fas fa-home"></i> 홈</a>
+        <div class="dropdown">
+            <a href="#"><i class="far fa-newspaper"></i> 뉴스</a>
+            <div class="dropdown_content">
+                <a href="#">국제</a>
+                <a href="#">경제</a>
+                <a href="#">사회</a>
+            </div>
+        </div>
+        <a href="#"><i class="fas fa-id-card"></i> 연락처</a>
+        <a href="#"><i class="fas fa-portrait"></i> 자기소개</a>
+        <span class="search"><i class="fas fa-search"></i><input type="text" placeholder="검색" class="search_input"></span>
+        
+        <a href="javascript:void(0);" class="icon" onclick="myFunc()">
+            <i class="fas fa-bars"></i>
+        </a>
+    </div>
+    <h1>동물농장</h1>
+    <p>되려니와, 어디 꽃 예수는 것이다. 피고 목숨이 대중을 없으면, 할지니, 그들의 실로 충분히 가장 칼이다. </p>
+    <script>
+        function myFunc() {
+            var x = document.getElementById("myTopnav") // document : 해당 html 페이지
+            if (x.className === "topnav clearfix") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav clearfix";
+            }
+        }
+    </script>
+</body>
+
+</html>

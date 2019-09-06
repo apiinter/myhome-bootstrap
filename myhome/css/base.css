@@ -1,0 +1,46 @@
+.clearfix{content:""; clear:both; display:table;}
+
+div,a, input, textarea, button{box-sizing: border-box;}
+
+header{
+    text-align: center;
+    margin:15px 0px;
+}
+header a img{
+    width: 340px;
+}
+
+body{
+    margin:0;
+}
+.gnb{
+    margin:0; padding:0;
+    overflow:hidden;
+    list-style: none;
+    background-color:black;
+    margin-bottom: 24px;
+}
+.gnb li{
+    float:left;
+}
+.gnb li.right{
+    float:right;
+}
+.gnb li a{
+    text-align:center;
+    display:block;
+    text-decoration:none;
+    padding:10px 10px;
+    color: white;
+}
+.gnb li a:hover{
+    background-color:lightgrey;
+    color:darkslategrey;
+}
+.gnb .active{
+    background-color: lightgrey;
+    color:darkslategrey;
+}
+footer{
+    margin-top:50px; text-align: center; 
+}

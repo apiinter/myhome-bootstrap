@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>float를 이용한 레이아웃</title>
+    <style>
+        div{border: 1px dashed grey;}
+        #section{width: 68%; float: left;}
+        #aside{width: 31%; float: right;}
+        .cleartext{content:""; clear:both; display:table;}
+    </style>
+</head>
+<body>
+    <!-- 1. float는 주변 요소로 감싸진다.
+         2. clear로 float을 해제 -->   
+    <div id="header">h</div>
+    <div id="navigation">
+        <ul>
+            <li>홈</li>
+            <li>자기소개</li>
+            <li>친구목록</li>
+        </ul>
+    </div>
+    <div id="content">
+        <div id="section">
+            <ul>
+                <li>class는 여러 요소에 스타일을 지정</li>
+                <li>id는 문서에 하나의 요소만 지정</li>
+            </ul>
+        </div>
+        <div id="aside">a</div>
+    </div>
+    <div class="cleartext"></div>
+    <div id="footer">f</div>
+</body>
+</html>

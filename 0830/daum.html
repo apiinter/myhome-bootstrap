@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Daum 회원가입</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        body,
+        th,
+        td,
+        input,
+        select,
+        textarea,
+        button {
+            line-height: 1.5;
+            font-family: NotoSans-Regular, AppleSDGothicNeo-Regular, "맑은 고딕", Malgun Gothic, "돋움", dotum, sans-serif;
+            font-size: 16px;
+            color: #7c7c7c;
+            letter-spacing: -0.03em;
+            word-wrap: break-word;
+            word-break: keep-all;
+        }
+
+        /* header */
+        .header,
+        .header img {
+            width: 90px;
+        }
+
+        .header {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+            margin-bottom: 40px;
+        }
+
+        /* header */
+        /* content */
+        .content {
+            width: 580px;
+            height: 950px;
+            padding: 58px 69px 139px 69px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid #e5e5e5;
+            position: relative;
+            margin-bottom: 30px;
+
+        }
+
+        .content .tit_step {
+            margin-bottom: 44px;
+            line-height: 34px;
+            font-weight: 500;
+            font-size: 22px;
+            color: #252525;
+        }
+
+        .content .tf_required {
+            display: block;
+            margin-top: 40px;
+            font-weight: 700;
+            font-size: 12px;
+            color: #000;
+        }
+
+        input {
+            border: none;
+        }
+
+        .id .id_email,
+        .pwd_div .pwd_span,
+        .nick_div .nick_span,
+        .phone_div .phone_span,
+        .birth_gender_div .birth_gender_span {
+            display: block;
+            width: 100%;
+            height: 47px;
+            position: relative;
+            background: white;
+
+        }
+
+        .id .id_email .id_email_input,
+        .pwd_div .pwd_span .pwd_input,
+        .nick_div .nick_span .nick_input,
+        .phone_div .phone_span .phone_input,
+        .birth_gender_div .birth_span {
+            display: block;
+            width: 100%;
+            height: 50px;
+            border-bottom: 2px solid lightgray;
+            font-size: 20px;
+            font-weight: 800;
+            color: black;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .id .id_email .id_email_input:focus,
+        .pwd_div .pwd_span .pwd_input:focus,
+        .nick_div .nick_span .nick_input:focus {
+            border-color: gray;
+        }
+
+        .daumnet {
+            position: absolute;
+            top: 165px;
+            right: 70px;
+        }
+
+        .daumnet img {
+            width: 120px;
+        }
+
+        input::placeholder {
+            color: #adadad;
+            font-size: 15px;
+        }
+
+        .id .id_email .id_email_input {
+            padding-right: 130px;
+        }
+
+        .id .id_explain {
+            display: block;
+            position: relative;
+            padding-top: 12px;
+            padding-left: 12px;
+            color: #999999;
+            font-size: 11px;
+            font-weight: 550;
+        }
+
+        .id .id_explain li+li {
+            margin-top: 5px;
+        }
+
+        .between_pwd {
+            display: block;
+            height: 15px;
+        }
+
+        .phone_sel,
+        .year_sel,
+        .month_sel,
+        .day_sel,
+        .lunar_input {
+            display: block;
+            height: 99%;
+            width: 65px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border: none;
+            outline: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        .phone_between {
+            display: block;
+            position: absolute;
+            left: 70px;
+            top: 8px;
+            font-size: 20px;
+            color: lightgray
+        }
+
+        .phone_div .phone_span .phone_input {
+            padding-left: 90px;
+        }
+
+        .phone_div {
+            position: relative;
+        }
+
+        .phone_btn {
+            position: absolute;
+            right: 0;
+            top: 80px;
+            background: white;
+            border: 1px solid gray;
+            border-radius: 50px;
+            width: 145px;
+            height: 40px;
+            color: black;
+            font-size: 15px;
+            padding-bottom: 5px;
+            cursor: pointer;
+        }
+
+        .birth_gender_div {
+            margin-top: 82px;
+        }
+
+        .birth_span,
+        .gender_span {
+            position: relative;
+        }
+
+        .birth_span .month_sel {
+            left: 100px;
+        }
+
+        .birth_span .day_sel {
+            left: 200px;
+        }
+
+       
+        .lunar_text {
+            position: absolute;
+            left: 400px;
+            top: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .gender_span {
+            display: block;
+            margin-top: 10px;
+            color: black;
+            font-size: 16px;
+        }
+
+        .gender_span label+label {
+            margin-left: 40px;
+        }
+
+        /* .gender_span label{padding-left:25px;} */
+        .gender_span label,
+        .gender_span label input {
+            cursor: pointer;
+        }
+
+        .next {
+            border: none;
+            background: #f6f6f6;
+            display: block;
+            width: 100%;
+            height: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+            cursor: pointer;
+            color: black;
+            font-size: 15px;
+        }
+
+        .next:hover {
+            background: #e7e7e7;
+        }
+
+        /* content */
+        /* footer */
+        .footer {
+            width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .clearfix {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .footer ul li {
+            list-style: none;
+            float: left;
+        }
+
+        .footer ul li+li {
+            margin-left: 17px;
+        }
+
+        .footer ul {
+            display: block;
+            width: 580px;
+            font-size: 12px;
+            color: black;
+            font-weight: 500;
+            margin-left: 80px;
+        }
+
+        .footer .copyright {
+            display: block;
+            margin-top: 10px;
+            font-size: 12px;
+            color: gray;
+        }
+
+        .footer {
+            margin-bottom: 50px;
+        }
+
+        .footer .copyright .bold a,
+        .footer ul li .bold {
+            font-weight: 600;
+            color: gray;
+        }
+
+        .footer ul li .bold {
+            font-weight: 600;
+            color: black;
+        }
+
+        .footer select {
+            border: none;
+            outline: none;
+            font-size: 12px;
+            color: black;
+            cursor: pointer;
+        }
+
+        input {
+            caret-color: rgb(221, 221, 0);
+        }
+        /* footer */
+        select{
+            -webkit-appearance: none;
+        }
+        .phone_span{
+            position:relative;
+        }
+        .phone_span .image{
+            position:absolute;
+            top:12px;
+            left:49px;
+        }
+        .image img{
+            width:15px;
+        }
+        .birth_span .image{
+            position:absolute;
+            top:8px;
+            left:35px;
+        }
+        .birth_span .image.month{
+            position:absolute;
+            top:8px;
+            left:125px;
+        }
+        .birth_span .image.day{
+            position:absolute;
+            top:8px;
+            left:225px;
+        }
+        .lunar_input img{
+            width:30px;
+        }
+        .content .birth_gender_div .lunar_input{
+            position:absolute;
+            left:365px;
+            top:9px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="../img/daum_logo.png" alt="">
+    </div>
+    <div class="content">
+        <h2 class="tit_step">카카오계정 정보를 입력해주세요</h2>
+        <div class="id">
+            <strong class="tf_required">카카오계정 이메일</strong>
+            <span class="id_email"><input type="text" class="id_email_input" placeholder="이메일 주소 입력">
+
+            </span>
+            <span class="daumnet"><img src="../img/daumnet.png" alt=""></span>
+            <ul class="id_explain">
+                <li>카카오계정으로 사용할 Daum 이메일을 만들어주세요.</li>
+                <li>만약 사용중인 Daum메일이 있다면, Daum아이디로 로그인하여 계정을 가입해주세요.</li>
+            </ul>
+        </div>
+        <div class="pwd_div">
+            <strong class="tf_required">비밀번호</strong>
+            <span class="pwd_span"><input type="password" id="pwd" class="pwd_input" placeholder="비밀번호(8~32자리)"
+                    minlength="8" maxlength="32"></span>
+            <span class="between_pwd"></span>
+            <span class="pwd_span"><input type="password" class="pwd_input" placeholder="비밀번호 재입력" minlength="8"
+                    maxlength="32">
+        </div>
+        <div class="nick_div">
+            <strong class="tf_required">닉네임</strong>
+            <span class="nick_span"><input type="text" class="nick_input" placeholder="닉네임을 입력해주세요." maxlength="20">
+            </span>
+        </div>
+        <div class="phone_div">
+            <strong class="tf_required">전화번호</strong>
+            <span class="phone_span">
+                <select name="phone_num_name" id="phone_num" class="phone_sel">
+                    <option value="phone_num">+82&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp대한민국(Republic of Korea)</option>
+                    <option value="phone_num">+49&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGermany</option>
+                    <option value="phone_num">+61&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAustralia</option>
+                </select>
+                <span class="image" href=""><img src="../img/arrow_bottom.png" alt=""></span>
+                <span class="phone_between">|</span>
+                <input type="tel" class="phone_input" id="phone_num" placeholder="전화번호" maxlength="16">
+                
+            </span>
+            <button type="button" class="phone_btn">인증번호 전송</button>
+        </div>
+        <div class="birth_gender_div">
+            <strong class="tf_required">생일/성별</strong>
+            <span class="birth_span">
+                <select name="year" id="year_id" class="year_sel">
+                    <option selected>연도</option>
+                    <option value="year_id">2005</option>
+                    <option value="year_id">2004</option>
+                    <option value="year_id">2003</option>
+                    <option value="year_id">2002</option>
+                    <option value="year_id">2001</option>
+                    <option value="year_id">2000</option>
+                </select>
+                <span class="image" href=""><img src="../img/arrow_bottom.png" alt=""></span>
+                <select name="month" id="month_id" class="month_sel">
+                    <option selected>월</option>
+                    <option value="month_id">1</option>
+                    <option value="month_id">2</option>
+                    <option value="month_id">3</option>
+                    <option value="month_id">4</option>
+                    <option value="month_id">5</option>
+                    <option value="month_id">6</option>
+                    <option value="month_id">7</option>
+                    <option value="month_id">8</option>
+                    <option value="month_id">9</option>
+                    <option value="month_id">10</option>
+                    <option value="month_id">11</option>
+                    <option value="month_id">12</option>
+                </select>
+                <span class="image month" href=""><img src="../img/arrow_bottom.png" alt=""></span>
+                <select name="day" id="day_id" class="day_sel">
+                    <option selected>일</option>
+                    <option value="day_id">일</option>
+                    <option value="day_id">1</option>
+                    <option value="day_id">2</option>
+                    <option value="day_id">3</option>
+                    <option value="day_id">4</option>
+                    <option value="day_id">5</option>
+                    <option value="day_id">6</option>
+                    <option value="day_id">7</option>
+                </select>
+                <span class="image day" href=""><img src="../img/arrow_bottom.png" alt=""></span>
+                
+                <span class="lunar_input"><img src="../img/check.png" alt=""></span>
+                <span class="lunar_text">음력</span>
+           
+
+            </span>
+            <span class="gender_span">
+                <label for="nochoice"><input type="radio" name="gender" id="nochoice" checked="checked"><span
+                        class="radio_gender">&nbsp선택안함</span></label>
+                <label for="female"><input type="radio" name="gender" id="female"><span
+                        class="radio_gender">&nbsp여자</span></label>
+                <label for="male"><input type="radio" name="gender" id="male"><span
+                        class="radio_gender">&nbsp남자</span></label>
+            </span>
+        </div>
+        <button type="button" class="next">다음</button>
+    </div>
+    <div class="footer">
+        <ul>
+            <li><a href="">이용약관</a></li>
+            <li><a href=""><span class="bold">개인정보 처리방침</span></a></li>
+            <li><a href="">운영정책</a></li>
+            <li><a href="">고객센터</a></li>
+            <li><a href="">공지사항</a></li>
+            <li>
+                <select name="" id="language">
+                    <option selected>한국어</option>
+                    <option value="language">영어</option>
+                    <option value="language">독일어</option>
+                </select>
+            </li>
+        </ul>
+        <span class="clearfix"></span>
+        <span class="copyright">Copyright <span class="bold"><a href="">© Kakao Corp.</a></span> All rights
+            reserved.</span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* div{border:2px solid red; box-sizing:border-box; margin-bottom:1px;} */
+        #header{background-color:wheat; background-image:url('../img/apple.jpg'); background-repeat: no-repeat; background-size:100%; }
+        #header h1{height:80px; font-size:300%; text-align:center;}
+        /* #nav{width:100%;} */
+        #nav div{float:left; width:19%; font-size:100%; text-align:center; background-color:yellow; margin-right:1%;}
+        .clearfix{content:""; clear:both; display:table;}
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1 style="margin:0px; margin-bottom:5px;">헤더</h1>
+    </div>
+    <div class="clearfix"></div>
+    <div id="nav">
+        <div>first</div>
+        <div>second</div>
+        <div>third</div>
+        <div>fourth</div>
+        <div>fifth</div>
+    </div>
+</body>
+</html>

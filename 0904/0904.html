@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{box-sizing: border-box;}
+        .demo{padding:10px;}
+        .demo:hover{background-color: blue;}
+        .demo:hover .red{background-color:red;}
+        .dropdown{width:100px;}
+        .dropdown .dropdown-content{display:none;}
+        .dropdown-content a{display:block; background-color: red; text-decoration: none;text-align: center; }
+        .dropdown-content a:hover{background-color:yellow; font-weight: 700;}
+        .dropdown .dropbtn{text-align:center;}
+        .dropdown:hover .dropdown-content{display:block; }
+        .dropdown:hover .dropbtn{background-color:yellowgreen; font-weight: 700;}
+        
+        .dropdown > img{width:100%;}
+        .dropdown-content img{width:100px;}
+        .dropdown:hover .dropdown-content img{border:5px solid yellowgreen;}
+        .dropdown-content img:hover{
+            border:5px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>드롭다운을 사용하기 위한 사전 지식</h1>
+    <ul>
+        <li>가상 클래스 중에 :hover</li>
+    </ul>
+    <div class="demo">
+        <p>가상 클래스 예</p>
+        <div class="red">빨강</div>
+    </div>
+    <div class="dropdown">
+        <div class="dropbtn">드롭다운</div>
+        <div class="dropdown-content">
+            <a href="#">메뉴1</a>
+            <a href="#">메뉴2</a>
+            <a href="#">메뉴3</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <img src="https://cdn.pixabay.com/photo/2018/02/08/22/27/flower-3140492_960_720.jpg" alt="">
+        <div class="dropdown-content">
+            <img src="https://live.staticflickr.com/4898/43959442520_a5c84dac11_b.jpg" alt="">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Nelumno_nucifera_open_flower_-_botanic_garden_adelaide2.jpg" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTofTTw09JaYxJRsRiICjN8YJ-pyz2_p3DJ1a15FuCSEtwj_s8tBg" alt="">
+        </div>
+    </div>
+</body>
+</html>

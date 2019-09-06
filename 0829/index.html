@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>회원가입</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: whitesmoke;
+        }
+
+        .frame {
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .frame input,
+        .frame select {
+            width: 300px;
+            height: 24px;
+            margin-bottom: 12px;
+        }
+
+        .frame label {
+            width: 300px;
+            display: block;
+            margin-bottom: 2px;
+            font-size: 13px;
+        }
+
+        .frame .birthday div {
+            width: 300px;
+        }
+
+        .frame input {
+            padding-left: 3px;
+        }
+
+        .frame .birthday input,
+        .frame .birthday select {
+            width: 96px;
+            height: 24px;
+            display: block;
+            float: left;
+        }
+
+        .frame select,
+        .frame ::placeholder {
+            font-size: 13px;
+        }
+
+        .birthday .year,
+        .birthday select {
+            margin-right: 6px;
+        }
+
+        .frame .gender select,
+        .frame .phone select {
+            width: 300px;
+            height: 24px;
+            display: block;
+        }
+
+        .phone div input,
+        .phone div button {
+            display: block;
+            float: left;
+        }
+
+        .phone div input {
+            width: 200px;
+            margin-right: 10px;
+        }
+
+        .phone div button {
+            width: 90px;
+            height: 24px;
+            background-color: green;
+            color: white;
+            font-size: 65%;
+            border-style: none;
+        }
+
+        .signin button {
+            display: block;
+            width: 300px;
+            height: 40px;
+            background-color: green;
+            color: white;
+            font-size: 100%;
+            border-style: none;
+        }
+
+        .frame .phone select {
+            margin-bottom: 7px;
+        }
+
+        .frame .phone div input {
+            margin-bottom: 6px;
+        }
+
+        .frame .logo {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .frame .logo img {
+            width: 250px;
+        }
+
+        .phone button:hover,
+        .signin button:hover {
+            background-color: darkgreen;
+        }
+        footer{text-align:center; margin-bottom:15px; }
+        footer a {
+            text-decoration: none;
+            color: #333;
+            font-size:7.5px;
+        }
+        footer a:hover{text-decoration:underline; color:#438a01}
+        footer .lightgray{color:lightgray;}
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div class="frame">
+            <div class="logo">
+                <img src="../img/300.png" alt="">
+            </div>
+            <div class="id">
+                <label for="id_input">아이디</label>
+                <input type="text" id="id_input" placeholder="5자 이상 10자 이하" maxlength="10" minlength="5>
+            </div>
+            <div class="password">
+                <label for="password_input">비밀번호</label>
+                <input type="password" id="password_input" placeholder="5자 이상 10자 이하" maxlength="10" minlength="5">
+            </div>
+            <div class="passwordcheck">
+                <label for="password_check">비밀번호 재확인</label>
+                <input type="password" id="password_check" placeholder="동일한 비밀번호 입력" maxlength="10" minlength="5">
+            </div>
+            <div class="name">
+                <label for="name_input">이름</label>
+                <input type="text" id="name_input" placeholder="필수 정보">
+            </div>
+            <div class="birthday">
+                <label for="birthday_input">생년월일</label>
+                <div>
+                    <input type="text" id="birthday_input" class="year" placeholder="년(4자)" maxlength="4">
+                    <select name="month" id="birthday_input">
+                        <option>월</option>
+                        <option value="1" id="birthday_input">1</option>
+                        <option value="2" id="birthday_input">2</option>
+                        <option value="3" id="birthday_input">3</option>
+                        <option value="4" id="birthday_input">4</option>
+                        <option value="5" id="birthday_input">5</option>
+                        <option value="6" id="birthday_input">6</option>
+                        <option value="7" id="birthday_input">7</option>
+                        <option value="8" id="birthday_input">8</option>
+                        <option value="9" id="birthday_input">9</option>
+                        <option value="10" id="birthday_input">10</option>
+                        <option value="11" id="birthday_input">11</option>
+                        <option value="12" id="birthday_input">12</option>
+                    </select>
+                    <input type="text" id="birthday_input" placeholder="일" maxlength="2">
+                </div>
+            </div>
+            <div class="gender">
+                <label for="gender_input">성별</label>
+                <select name="gender" id="gender_input">
+                    <option value="gender">성별</option>
+                    <option value="male">남자</option>
+                    <option value="female">여자</option>
+                </select>
+            </div>
+            <div class="email">
+                <label for="email_input">본인 확인 이메일<span style="font-size:10px; color: gray;">(선택)</span></label>
+                <input type="text" id="email_input" placeholder="선택 입력">
+            </div>
+            <div class="phone">
+                <label for="phonenum">휴대전화</label>
+                <select name="phone" id="phonenum">
+                    <option value="korea">대한민국 +82</option>
+                    <option value="newzealand">뉴질랜드 +62</option>
+                    <option value="aust">호주 +61</option>
+                </select>
+                <div>
+                    <input type="text" id="phonenum" placeholder="전화번호 입력(- 제외)">
+                    <button type="button">인증번호 받기</button>
+                </div>
+                <input type="text" id="phonenum" placeholder="인증번호를 입력하세요">
+            </div>
+            <div class="signin">
+                <button type="button">가입하기</button>
+            </div>
+        </div>
+    </form>
+    <footer>
+        <a href="">이용약관</a>
+        <span class="lightgray">|</span>
+        <strong><a href="">개인정보처리방침</a></strong>
+        <span class="lightgray">|</span>
+        <a href="">책임의 한계와 법적고지</a>
+        <span class="lightgray">|</span>
+        <a href="">회원정보</a>
+        <span class="lightgray">|</span>
+        <a href="">고객센터</a>
+    </footer>
+</body>
+</html>
