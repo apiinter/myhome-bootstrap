@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="compare('apple')">사과</button>
+    <button type="button" onclick="compare('mandalin')">귤</button>
+    <button type="button" onclick="compare('pair')">배</button>
+    <br><br>
+    <button type="button" onclick="myFn('apple')">사과</button>
+    <button type="button" onclick="myFn('mandalin')">귤</button>
+    <button type="button" onclick="myFn('pair')">배</button>
+    <script>
+        n = ["", ""]
+        clicked = 0
+        function compare(s){
+            n[clicked] = s
+            clicked++
+            if(clicked === 2){
+                if(n[clicked - 1] === n[clicked - 2]){
+                    window.alert("성공")
+                }else{
+                    window.alert("실패")
+                }
+                clicked = 0
+            }
+        }
+
+        var sel1, sel2, cnt = 0;
+        function myFn(selName){
+            if(cnt === 0){
+                sel1 = selName;
+                cnt++
+            }else{
+                sel2 = selName;
+                myAlt();
+            }
+
+        }
+        function myAlt(){
+            var msg = ""
+            if(sel1 === sel2){
+                msg = "성공";
+            }else{
+                msg = "실패";
+            }
+            cnt = 0
+            window.alert(msg);
+        }
+    </script>
+</body>
+</html>

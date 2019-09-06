@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        td{
+            border:1px solid black;
+            width:100px;
+            height:100px;
+            text-align: center;
+        }
+        table{
+            border-collapse: collapse;
+            margin:30px;
+        }
+        .first.second{
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- table>tr*4>td*4 -->
+    <table>
+        <tr>
+            <td class="first" onclick="overFn(this)">red</td>
+            <td onclick="overFn(this)">blue</td>
+            <td onclick="overFn(this)">green</td>
+            <td onclick="overFn(this)">yellow</td>
+        </tr>
+        <tr>
+            <td onclick="overFn(this)">coral</td>
+            <td onclick="overFn(this)">blueviolet</td>
+            <td onclick="overFn(this)">brown</td>
+            <td onclick="overFn(this)">aqua</td>
+        </tr>
+        <tr>
+            <td onclick="overFn(this)">beige</td>
+            <td onclick="overFn(this)">chocolate</td>
+            <td onclick="overFn(this)">darkcyan</td>
+            <td onclick="overFn(this)">cyan</td>
+        </tr>
+        <tr>
+            <td onclick="overFn(this)">aquamarine</td>
+            <td onclick="overFn(this)">darkgreen</td>
+            <td onclick="overFn(this)">darkgoldenrod</td>
+            <td onclick="overFn(this)">darkkhaki</td>
+        </tr>
+    </table>
+    <script>
+        function overFn(param){
+            var el = param;
+            if(el.className === "first"){
+                el.className = el.className + " second";
+            }else{
+                el.className = "first";
+            }
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>계산기</title>
+  <link rel="stylesheet" href="0905_3.css">
+</head>
+<body>
+  <section class="calc">
+    <h1>4칙연산 계산기</h1>
+    <div>
+      <div id="text"></div>
+      <ul>
+        <li><a href="#" onclick="getVals = getVals+7">7</a></li>
+        <li><a href="#" onclick="getVals = getVals+8">8</a></li>
+        <li><a href="#" onclick="getVals = getVals+9">9</a></li>
+        <li><a href="#" onclick="getVals = getVals+'*'">*</a></li>
+      </ul>
+      <ul>
+        <li><a href="#" onclick="getVals = getVals+4">4</a></li>
+        <li><a href="#" onclick="getVals = getVals+5">5</a></li>
+        <li><a href="#" onclick="getVals = getVals+6">6</a></li>
+        <li><a href="#" onclick="getVals = getVals+'/'">/</a></li>
+      </ul>
+      <ul>
+        <li><a href="#" onclick="getVals = getVals+1">1</a></li>
+        <li><a href="#" onclick="getVals = getVals+2">2</a></li>
+        <li><a href="#" onclick="getVals = getVals+3">3</a></li>
+        <li><a href="#" onclick="getVals = getVals+'-'">-</a></li>
+      </ul>
+      <ul>
+        <li><a href="#" onclick="clearText()">C</a></li>
+        <li><a href="#" onclick="getVals = getVals+0">0</a></li>
+        <li><a href="#" onclick="showText()">=</a></li>
+        <li><a href="#" onclick="getVals = getVals+'+'">+</a></li>
+      </ul>
+    </div>
+  </section>
+  <script src="0905_3.js"></script>
+</body>
+</html>

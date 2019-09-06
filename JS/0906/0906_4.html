@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div .first, .second, .third, .fourth, .fifth{
+            width:20%;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>이벤트</h1>
+        <h2>onmouseover / onmouseout</h2>
+        <div>
+            <div class="first" id="fr" onmouseover="first(true)" onmouseout="first(false)">홈</div>
+            <div class="second" id="s">뉴스</div>
+            <div class="third" id="t">사진</div>
+            <div class="fourth" id="fo">게시판</div>
+            <div class="fifth" id="fi">고객센터</div>
+        </div>
+    </section>
+    <script>
+        function first(a){
+            if(a === true){
+                var el = document.getElementById("fr");
+                el.style.backgroundColor = "red";
+            }else{
+                var el = document.getElementById("fr");
+                el.style.backgroundColor = "blue";
+            }
+            
+        }
+    </script>
+</body>
+</html>

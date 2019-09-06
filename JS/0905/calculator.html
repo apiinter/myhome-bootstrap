@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button type="button" onclick="num('1')">1</button>
+        <button type="button" onclick="num('2')">2</button>
+        <button type="button" onclick="num('3')">3</button><br>
+        <button type="button" onclick="num('4')">4</button>
+        <button type="button" onclick="num('5')">5</button>
+        <button type="button" onclick="num('6')">6</button><br>
+        <button type="button" onclick="num('7')">7</button>
+        <button type="button" onclick="num('8')">8</button>
+        <button type="button" onclick="num('9')">9</button><br>
+        <button type="button" onclick="times()">×</button>
+        <button type="button" onclick="answer()">=</button>
+        <p id="demo"></p>
+    </div>
+    <script>
+        n = ["","","",""]
+        cnt = 0
+        answerx = 1
+        answerd = 1
+        answerp = 0
+        answerm = 0
+        function num(input){
+            n[cnt] = n[cnt] + input
+            document.getElementById("demo").innerHTML = document.getElementById("demo").innerHTML + input
+        }
+        function times(){
+            rule = 'X'
+            cnt++
+            document.getElementById("demo").innerHTML = document.getElementById("demo").innerHTML + '×'
+        }
+        function answer(){
+            if(rule === 'X'){
+                for(i = 0; i <= cnt; i++){
+                    answerx = answerx * Number(n[i]);
+                }
+            }
+            document.getElementById("demo").innerHTML = document.getElementById("demo").innerHTML + '=' + answerx;
+            
+        }
+    </script>
+</body>
+</html>

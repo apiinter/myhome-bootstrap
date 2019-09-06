@@ -1,0 +1,34 @@
+.calc #text {
+  font-size: 50px;
+}
+
+.calc div ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.calc div ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.calc div ul li {
+  float: left;
+  margin: 2px;
+}
+
+.calc div ul li a {
+  border-radius: 50%;
+  display: table-cell;
+  vertical-align: middle;
+  background-color: antiquewhite;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  font-size: 60px;
+  text-decoration: none;
+  color: brown;
+}
+/*# sourceMappingURL=0905_3.css.map */

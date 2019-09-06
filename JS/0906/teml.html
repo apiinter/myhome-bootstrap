@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //3개의 값 중에 가장 큰 값과 작은 값을 더한다.
+        function minMaxSum(p1, p2, p3){
+            var n1 = p1, n2 = p2 , n3 = p3;
+            var min, max;
+            min = n1;
+            if(n1 < n2){
+                max = n2;
+            }else{
+                max = n1;
+                min = n2;
+            }
+            if(n3 > max){
+                max = n3;
+            }else{
+                if(min > n3){
+                    min = n3;
+                }
+            }
+            window.alert("최대값:"+max+", "+"최소값:"+min);
+        }
+        minMaxSum(4234,654654,124134);
+
+        
+
+    </script>
+</body>
+</html>

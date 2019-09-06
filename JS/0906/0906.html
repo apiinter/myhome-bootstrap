@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <h1>즉시 실행 함수</h1>
+        <ul>
+            <li>호출 없이 페이지 로딩시에 바로 실행되는 함수</li>
+        </ul>
+    </section>
+    <script>
+        // 즉시 실행 함수
+        (function myFn(){
+            console.log("금요일~~~");
+        })();
+        // 익명 함수
+        (function (){
+            console.log("곧 주말~~~");
+        })();
+
+        // 함수
+        function myFn2(){
+            console.log("내일은 토요일~~~");
+        }
+        myFn2();
+    </script>
+</body>
+</html>
