@@ -48,7 +48,7 @@
                 <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="minus" onclick="minus()">-</a>
                 <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="divide" onclick="divide()">/</a>
                 <a href="#" class="btn_numb" onclick="num('0')">0</a>
-                <a href="#" class="btn_numb" onclick="num('00')">00</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" onclick="num('.')" id="dot" onclick="dot()">.</a>
                 <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="openBrace" onclick="openBrace()">(</a>
                 <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="closeBrace" onclick="closeBrace()">)</a>
                 <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="equal" onclick="answer()">=</a>
@@ -79,46 +79,82 @@
                 show_explain.innerHTML = "괄호 닫기";
             }else if(el.id === "equal"){
                 show_explain.innerHTML = "계산 결과";
+            }else if(el.id === "dot"){
+                show_explain.innerHTML = "소수점";
             }
         }
         function eraseDisplay(){
             document.getElementById("show_explain").innerHTML = "";
         }
-        var cnt = 0;
         var display = document.getElementById("display");
         function num(input){
             display.innerHTML += input
-            cnt++;
-            if(cnt === 28){
-                answer();
+            if(display.textContent.length >= 55){
+                show_explain.innerHTML = '입력 글자 초과';
+                c();
             }
         }
         function times(){
             display.innerHTML += '*'
+            if(display.textContent.length >= 55){
+                show_explain.innerHTML = '입력 글자 초과';
+                c();
+            }
+
         }
         function plus(){
             display.innerHTML += '+'
+            if(display.textContent.length >= 55){
+                show_explain.innerHTML = '입력 글자 초과';
+                c();
+            }
         }
         function minus(){
             display.innerHTML += '-'
+            if(display.textContent.length >= 55){
+                show_explain.innerHTML = '입력 글자 초과';
+                c();
+            }
         }
         function divide(){
             display.innerHTML += '/'
+            if(display.textContent.length >= 55){
+                show_explain.innerHTML = '입력 글자 초과';
+                c();
+            }
+        }
+        function dot(){
+            display.innerHTML += '.'
+            if(display.textContent.length >= 55){
+                show_explain.innerHTML = '입력 글자 초과';
+                c();
+            }
         }
         function erase(){
             display.innerHTML = display.innerHTML.slice(0, -1);
         }
+
         function c(){
             display.innerHTML = '';
         }
         function openBrace(){
-            display.innerHTML += '(';   
+            display.innerHTML += '(';
+            if(display.textContent.length >= 55){
+                show_explain.innerHTML = '입력 글자 초과';
+                c();
+            }   
         }
         function closeBrace(){
-            display.innerHTML += ')';   
+            display.innerHTML += ')';
+            if(display.textContent.length >= 55){
+                show_explain.innerHTML = '입력 글자 초과';
+                c();
+            }
         }
+
         function answer(){
-            var answer = eval(document.getElementById("display").textContent);
+            display.innerHTML += '<br>';
+            var answer = eval(display.textContent);
             display.innerHTML += '=' + answer;
         }
     </script>
