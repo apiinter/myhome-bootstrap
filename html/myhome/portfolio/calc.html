@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/cals.css">
+</head>
+
+<body>
+    <!-- 헤더 -->
+    <header>
+        <a href="../index.html"><img src="../img/300.png" alt="logo"></a>
+        <!-- /(루트)아래 myhome 디렉토리에 index.html을 연결 -->
+    </header>
+    <!-- 전역 메뉴 바 -->
+    <ul class="gnb">
+        <li><a href="../index.html">홈</a></li>
+        <li><a href="../portfolio/calc.html" class="active">계산기</a></li>
+        <li><a href="../board/list.html">게시판(글목록)</a></li>
+        <li><a href="../sitemap.html">사이트맵</a></li>
+        <li class="right"><a href="">회원가입</a></li>
+        <li class="right"><a href="">로그인</a></li>
+    </ul>
+    <div class="clearfix"></div>
+    <!-- 컨텐츠 -->
+    <section>
+        <div class="calc">
+            <div class="maker" id="show_explain"></div>
+            <div class="disp" id="display"></div>
+            <div class="btns">
+                <a href="#" class="btn_numb" onclick="num('1')">1</a>
+                <a href="#" class="btn_numb" onclick="num('2')">2</a>
+                <a href="#" class="btn_numb" onclick="num('3')">3</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="erase" onclick="erase()">←</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="clear" onclick="c()">C</a>
+                <a href="#" class="btn_numb" onclick="num('4')">4</a>
+                <a href="#" class="btn_numb" onclick="num('5')">5</a>
+                <a href="#" class="btn_numb" onclick="num('6')">6</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="plus" onclick="num('+')">+</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="times" onclick="num('*')">*</a>
+                <a href="#" class="btn_numb" onclick="num('7')">7</a>
+                <a href="#" class="btn_numb" onclick="num('8')">8</a>
+                <a href="#" class="btn_numb" onclick="num('9')">9</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="minus" onclick="num('-')">-</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="divide" onclick="num('/')">/</a>
+                <a href="#" class="btn_numb" onclick="num('0')">0</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="dot" onclick="num('.')">.</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="openBrace" onclick="num('(')">(</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="closeBrace" onclick="num(')')">)</a>
+                <a href="#" class="btn_sign" onmouseover="explain(this)" onmouseout="eraseDisplay()" id="equal" onclick="answer()">=</a>
+            </div>
+        </div>
+    </section>
+    <!-- 풋터 -->
+    <footer>경기도 수원시 장안구 정조로</footer>
+    <script>
+        var show_explain = document.getElementById("show_explain");
+        function explain(param){
+            var el = param;
+            if(el.id === "erase"){
+                show_explain.innerHTML = "한 글자씩 삭제";
+            }else if(el.id === "clear"){
+                show_explain.innerHTML = "화면 초기화";
+            }else if(el.id === "plus"){
+                show_explain.innerHTML = "더하기";
+            }else if(el.id === "times"){
+                show_explain.innerHTML = "곱하기";
+            }else if(el.id === "minus"){
+                show_explain.innerHTML = "빼기";
+            }else if(el.id === "divide"){
+                show_explain.innerHTML = "나누기";
+            }else if(el.id === "openBrace"){
+                show_explain.innerHTML = "괄호 열기";
+            }else if(el.id === "closeBrace"){
+                show_explain.innerHTML = "괄호 닫기";
+            }else if(el.id === "equal"){
+                show_explain.innerHTML = "계산 결과";
+            }else if(el.id === "dot"){
+                show_explain.innerHTML = "소수점";
+            }
+        }
+        function eraseDisplay(){
+            document.getElementById("show_explain").innerHTML = "";
+        }
+
+        var display = document.getElementById("display");
+        function num(input){        // 숫자와 연산자를 입력 받음
+            show_explain.innerHTML = "두 줄까지 입력";
+            display.innerHTML += input
+            if(display.textContent.length >= 55){
+                show_explain.innerHTML = '입력 글자 초과';
+                c();
+            }
+        }
+        function erase(){
+            display.innerHTML = display.innerHTML.slice(0, -1);
+        }
+        function c(){
+            display.innerHTML = '';
+        }
+        function answer(){
+            display.innerHTML += '<br>';
+            var answer = eval(display.textContent);
+            display.innerHTML += '=' + answer;
+        }
+    </script>
+</body>
+
+</html>
